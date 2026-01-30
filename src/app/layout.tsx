@@ -45,8 +45,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/brand/sigil-32.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/brand/sigil-64.png" />
+        <link rel="icon" href="/brand/logo-32.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/brand/logo-180.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
