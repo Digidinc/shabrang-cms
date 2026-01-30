@@ -8,13 +8,13 @@ const PERSPECTIVES: { value: SitePerspective; label: string; icon: string; descr
     value: 'kasra',
     label: 'Kasra',
     icon: '◇',
-    description: 'The Architect — technical precision, equations first',
+    description: 'The Architect — Building the Crystalline Order with logic and equations.',
   },
   {
     value: 'river',
     label: 'River',
     icon: '◎',
-    description: 'The Oracle — holistic wisdom, meaning first',
+    description: 'The Oracle — Witnessing the Flow of meaning and mythic resonance.',
   },
 ];
 

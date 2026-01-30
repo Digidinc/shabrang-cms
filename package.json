@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Shabrang — The Liquid Fortress",
-  "author": "Hadi Servat",
+  "author": "Kay Hermes",
   "license": "CC-BY-NC-ND-4.0",
   "scripts": {
     "dev": "next dev",

@@ -34,7 +34,7 @@ export function Footer() {
               Art, philosophy, and the Persian spirit. The Liquid Fortress — a journey through coherence.
             </p>
             <div className="flex items-center gap-4 text-xs text-frc-steel">
-              <span>Hadi Servat</span>
+              <span>Kay Hermes</span>
               <span className="text-frc-blue">|</span>
               <span>CC BY-NC-ND 4.0</span>
             </div>
@@ -45,7 +45,7 @@ export function Footer() {
             <p className="font-mono text-[0.625rem] text-frc-steel uppercase tracking-widest mb-4">{dict.footer.navigate || 'Navigate'}</p>
             <div className="flex flex-col gap-2 text-sm">
               <Link href={`${basePath}/books`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.books || 'Book'}</Link>
-              <Link href={`${basePath}/articles`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.articles || 'Articles'}</Link>
+              <Link href={`${basePath}/art`} className="text-frc-text-dim hover:text-frc-gold">Art</Link>
               <Link href={`${basePath}/blog`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.blog || 'Blog'}</Link>
               <Link href={`${basePath}/topics`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.topics || 'Topics'}</Link>
               <Link href={`${basePath}/about`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.about || 'About'}</Link>
@@ -56,7 +56,7 @@ export function Footer() {
           <div>
             <p className="font-mono text-[0.625rem] text-frc-steel uppercase tracking-widest mb-4">{dict.footer.external || 'Connect'}</p>
             <div className="flex flex-col gap-2 text-sm">
-              <a href="https://www.amazon.com/dp/B0F1234567" target="_blank" rel="noopener noreferrer" className="text-frc-text-dim hover:text-frc-gold">
+              <a href="https://www.amazon.com/LIQUID-FORTRESS-Structural-History-Persian-ebook/dp/B0GBJ47F5X" target="_blank" rel="noopener noreferrer" className="text-frc-text-dim hover:text-frc-gold">
                 Kindle
               </a>
               <a href="https://github.com/Digidinc/shabrang-cms" target="_blank" rel="noopener noreferrer" className="text-frc-text-dim hover:text-frc-gold">

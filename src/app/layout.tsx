@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   description: 'Art, philosophy, and the Persian spirit. The Liquid Fortress book, albums, and explorations of coherence through Persian aesthetics.',
   keywords: ['Shabrang', 'Liquid Fortress', 'Persian art', 'Persian philosophy', 'coherence', 'miniature', 'Hadi Servat'],
-  authors: [{ name: 'Hadi Servat' }],
+  authors: [{ name: 'Kay Hermes' }],
   metadataBase: new URL('https://shabrang.ca'),
   openGraph: {
     type: 'website',
@@ -50,7 +50,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Vazirmatn:wght@300;400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Vazirmatn:wght@300;400;500;600&display=swap"
           rel="stylesheet"
         />
         <SchemaScript data={schemaSiteGraph()} />

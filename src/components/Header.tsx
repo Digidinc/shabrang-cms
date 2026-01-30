@@ -21,7 +21,7 @@ export function Header() {
   // Shabrang navigation - focused on artsy content
   const navLinks = [
     { path: '/books', label: dict.nav.books || 'Book' },
-    { path: '/articles', label: dict.nav.articles || 'Articles' },
+    { path: '/art', label: 'Art' },
     { path: '/blog', label: dict.nav.blog || 'Blog' },
     { path: '/topics', label: dict.nav.topics || 'Topics' },
     { path: '/about', label: dict.nav.about || 'About' },
