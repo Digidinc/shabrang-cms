@@ -35,10 +35,12 @@ const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
     'table', 'thead', 'tbody', 'tr', 'th', 'td',
     'img', 'figure', 'figcaption',
     'div', 'span', 'sup', 'sub',
+    'iframe',
   ],
   allowedAttributes: {
     a: ['href', 'class', 'title', 'target', 'rel', 'data-wikilink-id'],
     img: ['src', 'alt', 'width', 'height', 'class'],
+    iframe: ['src', 'width', 'height', 'title', 'frameborder', 'allow', 'allowfullscreen', 'class'],
     h1: ['id'], h2: ['id'], h3: ['id'], h4: ['id'],
     code: ['class'],
     pre: ['class'],

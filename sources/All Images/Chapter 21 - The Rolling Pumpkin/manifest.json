@@ -1,0 +1,11 @@
+{
+  "dpi": 300,
+  "sources": [
+    {
+      "pdf": "book/CrystlineSword/slides/21 The_Sword_and_the_Stream.pdf",
+      "start_page": 1,
+      "page_count": 15
+    }
+  ],
+  "total_pages": 15
+}

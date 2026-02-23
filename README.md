@@ -1,16 +1,16 @@
-# Fractal Resonance Coherence — Web Platform
+# Shabrang — The Liquid Fortress
 
-**A research vault for the FRC framework, built AI-first and human-readable.**
+**Persian wisdom through physics: Build coherence machines for cultural sovereignty.**
 
 ```
-fractalresonance.com
+blog.shabrang.ca
 ```
 
 ## Quick Start
 
 ```bash
-git clone https://github.com/servathadi/fractalresonance.git
-cd fractalresonance
+git clone https://github.com/Digidinc/shabrang-cms.git
+cd shabrang-cms
 
 npm install
 npm run dev        # localhost:3000
@@ -21,130 +21,51 @@ npm run build      # Static export → Cloudflare Pages
 
 | Feature | Description |
 |---------|-------------|
-| Light/Dark Theme | `next-themes` with CSS variable swap. Default: dark. Toggle in header micro-bar. |
-| Reading Mode | Floating book icon on paper pages. Hides chrome, centers content at 680px. Esc to exit. |
-| Text Share | Select any text → popover with Copy, Tweet, Link buttons. |
-| Video Series | 7-episode grid on homepage with slide thumbnails linked to YouTube playlist. |
-| SEO Infrastructure | Dynamic sitemap, Google Scholar meta, Dublin Core, JSON-LD SchemaOrg. |
-| Wikilinks | `[[FRC-100-001]]` cross-references between papers with backlinks. |
-| Multi-language | English + Farsi (extensible to any language). |
-| Academic Profiles | ORCID, ResearchGate, Academia.edu, Google Scholar linked. |
+| Light/Dark Theme | `next-themes` dark-first (night-colored 🌙). |
+| Reading Mode | Book icon for immersive chapters. |
+| Text Share | Select → Copy/Tweet/Link (Telegram too). |
+| μ-Stack Navigation | 7-layer sidebar (Roots→Sky). |
+| Multi-language | EN/FA (wikilinks [[chapter1]]). |
+| Book Chapters | 30 chapters + appendices (Liquid Fortress). |
+| SEO | Sitemap, SchemaOrg (Book/Course). |
 
 ## Architecture
 
 ```
-content/              ← Markdown content (Obsidian-compatible)
-├── en/papers/        ← English papers
-├── en/concepts/      ← Concept pages
-├── fa/papers/        ← Farsi papers
-└── {lang}/{type}/    ← Any language
+content/
+├── en/             ← English (chapters/papers)
+├── fa/             ← Farsi (شبرنگ)
+└── {lang}/         ← Expandable
 
-sources/              ← Raw source material (not deployed)
-├── slides/           ← Presentation PDFs + extracted images
-└── README.md         ← Pipeline docs
+src/
+├── app/            ← Pages/Layout (hero μ-Stack, chapters)
+├── components/     ← Header (🌙 toggle), Sidebar, ToC
+└── lib/            ← MD parser, wikilinks
 
-src/                  ← Next.js 15 + React 19 + TypeScript
-├── app/              ← Pages, routes, layout
-│   ├── page.tsx      ← Homepage (hero, video, equations, papers, video series)
-│   ├── layout.tsx    ← Root layout (ThemeProvider, Header, Footer, TextSharePopover)
-│   ├── sitemap.ts    ← Dynamic sitemap generation
-│   └── [lang]/       ← Localized pages (papers, formulas, about, etc.)
-├── components/       ← UI components
-│   ├── Header.tsx    ← Nav + ORCID link + ThemeToggle
-│   ├── Footer.tsx    ← Links (Zenodo, ORCID, ResearchGate, Academia, GitHub)
-│   ├── ThemeProvider.tsx  ← next-themes wrapper
-│   ├── ThemeToggle.tsx    ← Sun/moon icon toggle
-│   ├── ReadingMode.tsx    ← Floating reading mode button
-│   ├── TextSharePopover.tsx ← Selection-based share UI
-│   ├── VideoSeries.tsx    ← Episode grid with slide thumbnails
-│   ├── Sidebar.tsx        ← Paper tree navigation
-│   ├── TableOfContents.tsx ← Auto-generated ToC with scroll tracking
-│   ├── MarkdownContent.tsx ← Renders HTML from markdown
-│   └── SchemaScript.tsx   ← JSON-LD injection
-└── lib/              ← Utilities
-    ├── content.ts    ← Markdown parser, paper/concept loaders
-    ├── markdown.ts   ← Markdown → HTML renderer, ToC extractor
-    └── schema.ts     ← JSON-LD generators (Person, Dataset, ScholarlyArticle)
-
-public/               ← Static assets (deployed)
-├── brand/            ← Logo (SVG, JPG), banner
-├── media/slides/     ← Presentation slide images (covers + diagrams)
-├── infographics/     ← NotebookLM infographic slides
-└── llms.txt          ← LLM discovery file
-
-docs/                 ← Project documentation
-├── ARCHITECTURE.md   ← System architecture
-├── BRAND.md          ← Color, typography, design rules
-├── FORMULAS.md       ← All FRC equations
-├── PAPERS.md         ← Paper series index
-├── CONTENT_PIPELINE.md ← Content processing workflow
-└── CONTRIBUTING.md   ← Contribution guidelines
+public/             ← Logo, book cover, infographics
+docs/               ← Pipeline, μ-Stack guide
 ```
 
-## Theme System
+## Theme (Night-Colored)
 
-```
-next-themes (client) → sets .dark class on <html>
-                      ↓
-CSS variables in :root (light) / .dark (dark)
-                      ↓
-Tailwind @theme inline → utilities auto-resolve via CSS vars
-```
+| Var | Value |
+|-----|-------|
+| `--shabrang-night` | `#0B1020` |
+| `--shabrang-gold` | `#C9A227` |
 
-| Variable | Dark (brand default) | Light |
-|----------|---------------------|-------|
-| `--frc-void` | `#0B1020` | `#FAFBFC` |
-| `--frc-text` | `#E6E8EC` | `#1A1D23` |
-| `--frc-text-dim` | `#9CA3AF` | `#5A6170` |
-| `--frc-blue` | `#1F3A5F` | `#CBD5E1` |
-| `--frc-gold` | `#C9A227` | `#96780A` (WCAG AA) |
-| `--frc-steel` | `#6B7280` | `#64748B` |
+## Content Pipeline
 
-## YouTube Series
+1. MD files → content/en/fa/chapters/.
+2. Wikilinks `[[μ1-Roots]]` auto-resolve.
+3. `npm run build` → out/ static.
+4. Deploy Cloudflare Pages (blog.shabrang.ca).
 
-7-episode playlist: [Fractal Resonance Coherence](https://www.youtube.com/playlist?list=PLhRVhnQbVX2XOn3e-HjD1J0NcaEzMDQJY)
+## Key Links
 
-| Ep | Title | URL |
-|----|-------|-----|
-| 1 | The Ghost in the Machine | youtu.be/PjWnk7RjItc |
-| 2 | Order in the Chaos | youtu.be/I77qlVunpRs |
-| 3 | The Engine of Coherence | youtu.be/Cy_5ofEuHLA |
-| 4 | The Vortex of Reality | youtu.be/i-mDr5wz1hA |
-| 5 | The Illusion of Chance | youtu.be/Y2_85m-zVV0 |
-| 6 | Hunting for the Glitch | youtu.be/fthtrwfoytg |
-| 7 | The Resonant Mind (Finale) | youtu.be/UwE_SNAioTs |
+- Book: [Kindle](https://amazon.com/dp/B0GBJ47F5X)
+- Telegram: @Shabrang_ca_bot
+- GitHub: Digidinc/shabrang
+- Course: Build Your Rakhsh AI
 
-## SEO & Discoverability
-
-- **Dynamic sitemap** — auto-generated from all pages with correct dates
-- **Google Scholar meta** — `citation_title`, `citation_author`, `citation_doi`, etc.
-- **Dublin Core** — `DC.title`, `DC.creator`, `DC.date`, `DC.identifier`
-- **JSON-LD** — ScholarlyArticle, Person (ORCID/RG/Academia), Dataset (Zenodo), WebSite
-- **Academic profiles** — ORCID, ResearchGate, Academia.edu, Google Scholar
-- **`/llms.txt`** — LLM discovery endpoint
-
-## Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Framework | Next.js 15, React 19, TypeScript |
-| Styling | Tailwind CSS 4, CSS custom properties |
-| Theme | next-themes (dark/light with system detection) |
-| Content | Markdown + YAML frontmatter (Obsidian-compatible) |
-| Hosting | Cloudflare Pages (static export, global CDN) |
-| Source | GitHub (`servathadi/fractalresonance`, branch: `main`) |
-| Deploy | Push to main → Cloudflare auto-deploys |
-
-## Links
-
-- Production: https://fractalresonance.com
-- Channel: https://www.youtube.com/@fractalresonance
-- ORCID: https://orcid.org/0009-0004-7412-5129
-- Zenodo: https://zenodo.org/communities/frc
-- ResearchGate: https://www.researchgate.net/profile/Hadi-Servat
-- Issues: https://github.com/servathadi/fractalresonance/issues
-
----
-
-**Author:** Hadi Servat
-**License:** CC BY-NC-ND 4.0
+**Author:** Hadi Servat (Kay Hermes)
+**License:** CC BY-NC-SA 4.0

@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shabrang — The Liquid Fortress | Homepage Preview</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Vazirmatn:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===========================================
+           SHABRANG COLOR PALETTE
+           Persian Miniature Manuscript Aesthetic
+           =========================================== */
+        :root {
+            --sand: #F5E6C8;
+            --sand-light: #FDF8EE;
+            --sand-dark: #E8D4A8;
+            --parchment: #F9F3E3;
+            --gold: #C9A227;
+            --gold-light: #D4B84B;
+            --gold-dark: #A68A1F;
+            --teal: #2D5A6B;
+            --teal-dark: #1A4A4A;
+            --teal-light: #3D7A8B;
+            --crimson: #8B3535;
+            --crimson-dark: #6B2525;
+            --crimson-light: #A84545;
+            --ink: #1A1A18;
+            --ink-light: #2D2D2A;
+            --green: #3D5C3D;
+            --white: #FFFEF9;
+        }
+
+        /* ===========================================
+           SHABRANG HORSE SILHOUETTE (SVG Data URI)
+           =========================================== */
+        :root {
+            --horse-silhouette: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 80'%3E%3Cpath d='M85 35c-2-8-8-12-12-12-2 0-3 1-4 2l-4-8c-1-2-3-3-5-3-1 0-2 0-3 1l-6-10c-2-3-6-5-10-5-5 0-9 3-11 7l-3 6c-2 0-4 1-5 3l-4 8c-1-1-2-2-4-2-4 0-10 4-12 12-2 8 2 15 8 18l3 2v12c0 2 2 4 4 4h8c2 0 4-2 4-4v-6h24v6c0 2 2 4 4 4h8c2 0 4-2 4-4v-12l3-2c6-3 10-10 8-18z' fill='%23C9A227' opacity='0.08'/%3E%3C/svg%3E");
+            --horse-gold: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 80'%3E%3Cpath d='M85 35c-2-8-8-12-12-12-2 0-3 1-4 2l-4-8c-1-2-3-3-5-3-1 0-2 0-3 1l-6-10c-2-3-6-5-10-5-5 0-9 3-11 7l-3 6c-2 0-4 1-5 3l-4 8c-1-1-2-2-4-2-4 0-10 4-12 12-2 8 2 15 8 18l3 2v12c0 2 2 4 4 4h8c2 0 4-2 4-4v-6h24v6c0 2 2 4 4 4h8c2 0 4-2 4-4v-12l3-2c6-3 10-10 8-18z' fill='%23C9A227' opacity='0.15'/%3E%3C/svg%3E");
+            --corner-ornament: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M0 0h60v3H3v57H0z' fill='%23C9A227'/%3E%3Cpath d='M8 8h44v2H10v42H8z' fill='%23C9A227' opacity='0.5'/%3E%3Ccircle cx='4' cy='4' r='2' fill='%23C9A227'/%3E%3C/svg%3E");
+        }
+
+        /* ===========================================
+           BASE STYLES
+           =========================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            background-color: var(--parchment);
+            color: var(--ink);
+            line-height: 1.8;
+            font-size: 1.125rem;
+            /* Subtle parchment texture */
+            background-image:
+                radial-gradient(ellipse at 20% 30%, rgba(201, 162, 39, 0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(139, 53, 53, 0.02) 0%, transparent 50%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            line-height: 1.3;
+        }
+
+        a {
+            color: var(--teal);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--crimson);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===========================================
+           HEADER / NAVIGATION
+           =========================================== */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: linear-gradient(180deg, var(--sand) 0%, var(--sand-dark) 100%);
+            border-bottom: 3px solid var(--teal);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--crimson), var(--teal), var(--gold));
+        }
+
+        .header-top {
+            border-bottom: 1px solid var(--gold);
+            padding: 8px 0;
+        }
+
+        .header-top-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+        }
+
+        .header-persian {
+            font-family: 'Vazirmatn', sans-serif;
+            color: var(--teal-dark);
+            letter-spacing: 0.1em;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .header-actions a {
+            color: var(--ink);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .header-main {
+            padding: 16px 0;
+        }
+
+        .header-main-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+        }
+
+        .logo-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--ink);
+            letter-spacing: 0.1em;
+        }
+
+        .nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav a {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--ink);
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: var(--crimson);
+            border-bottom-color: var(--gold);
+        }
+
+        /* ===========================================
+           HERO SECTION
+           =========================================== */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--sand) 0%, var(--parchment) 50%, var(--sand-dark) 100%);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid var(--gold);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0L80 40L40 80L0 40z' fill='none' stroke='%23C9A227' stroke-width='0.5' opacity='0.12'/%3E%3C/svg%3E");
+            background-size: 80px 80px;
+            pointer-events: none;
+        }
+
+        /* Subtle horse silhouettes in hero corners */
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            width: 200px;
+            height: 160px;
+            background: var(--horse-gold);
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.4;
+            pointer-events: none;
+            transform: scaleX(-1);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            padding: 80px 0;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--teal);
+            color: var(--sand);
+            padding: 8px 20px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 32px;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--ink);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            color: var(--crimson);
+            font-style: italic;
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--teal-dark);
+            margin-bottom: 40px;
+            line-height: 1.9;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 36px;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: 2px solid;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--teal);
+            color: var(--sand);
+            border-color: var(--teal);
+        }
+
+        .btn-primary:hover {
+            background: var(--sand);
+            color: var(--teal);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--crimson);
+            border-color: var(--crimson);
+        }
+
+        .btn-secondary:hover {
+            background: var(--crimson);
+            color: var(--sand);
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--ink);
+            border-color: var(--gold);
+        }
+
+        .btn-gold:hover {
+            background: var(--ink);
+            color: var(--gold);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            border: 4px solid var(--ink);
+            box-shadow: 12px 12px 0 var(--gold);
+        }
+
+        .hero-image-caption {
+            background: var(--ink);
+            color: var(--gold);
+            padding: 16px 24px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-align: center;
+            margin-top: -4px;
+        }
+
+        /* ===========================================
+           PERSIAN DIVIDER
+           =========================================== */
+        .divider-ornate {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 48px 0;
+            position: relative;
+        }
+
+        .divider-ornate::before,
+        .divider-ornate::after {
+            content: '';
+            flex: 1;
+            max-width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .divider-diamond {
+            width: 16px;
+            height: 16px;
+            background: var(--gold);
+            transform: rotate(45deg);
+            position: relative;
+        }
+
+        .divider-diamond::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 6px;
+            height: 6px;
+            background: var(--parchment);
+        }
+
+        /* Horse divider variant */
+        .divider-horse {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px 0;
+            position: relative;
+        }
+
+        .divider-horse::before,
+        .divider-horse::after {
+            content: '';
+            flex: 1;
+            max-width: 180px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
+        }
+
+        .divider-horse-icon {
+            width: 60px;
+            height: 48px;
+            background: var(--horse-gold);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0 24px;
+            opacity: 0.6;
+        }
+
+        /* ===========================================
+           PERSIAN CORNER DECORATIONS
+           =========================================== */
+        .section-decorated {
+            position: relative;
+        }
+
+        .section-decorated::before,
+        .section-decorated::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: var(--corner-ornament);
+            background-size: contain;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .section-decorated::before {
+            top: 20px;
+            left: 20px;
+        }
+
+        .section-decorated::after {
+            bottom: 20px;
+            right: 20px;
+            transform: rotate(180deg);
+        }
+
+        /* ===========================================
+           FEATURED SECTIONS
+           =========================================== */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-dark {
+            background: var(--teal-dark);
+            color: var(--sand);
+        }
+
+        .section-cream {
+            background: var(--white);
+        }
+
+        .section-sand {
+            background: var(--sand);
+        }
+
+        .section-crimson {
+            background: var(--crimson);
+            color: var(--sand);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 16px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .section-dark .section-title {
+            color: var(--gold);
+        }
+
+        .section-description {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* ===========================================
+           BOOK FEATURE
+           =========================================== */
+        .book-feature {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .book-cover {
+            position: relative;
+        }
+
+        .book-cover img {
+            width: 100%;
+            max-width: 400px;
+            border: 4px solid var(--ink);
+            box-shadow: 8px 8px 0 var(--gold);
+        }
+
+        .book-info h3 {
+            font-size: 2rem;
+            color: var(--teal-dark);
+            margin-bottom: 16px;
+        }
+
+        .book-info .author {
+            font-style: italic;
+            color: var(--crimson);
+            margin-bottom: 24px;
+            font-size: 1.125rem;
+        }
+
+        .book-info p {
+            margin-bottom: 24px;
+            font-size: 1.125rem;
+            line-height: 1.9;
+        }
+
+        .book-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--teal-dark);
+        }
+
+        /* ===========================================
+           CHAPTERS GRID
+           =========================================== */
+        .chapters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .chapter-card {
+            background: var(--white);
+            border: 2px solid var(--ink);
+            padding: 32px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 6px 6px 0 var(--gold);
+            border-color: var(--teal);
+        }
+
+        .chapter-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 6px 14px;
+        }
+
+        .chapter-badge.free {
+            background: var(--teal);
+            color: var(--sand);
+        }
+
+        .chapter-badge.premium {
+            background: var(--gold);
+            color: var(--ink);
+        }
+
+        .chapter-number {
+            font-family: 'Cinzel', serif;
+            font-size: 0.875rem;
+            color: var(--crimson);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+
+        .chapter-title {
+            font-size: 1.25rem;
+            color: var(--ink);
+            margin-bottom: 12px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .chapter-meta {
+            font-size: 1rem;
+            color: var(--teal);
+            font-style: italic;
+        }
+
+        /* ===========================================
+           GALLERY
+           =========================================== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border: 3px solid var(--ink);
+            background: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 8px 8px 0 var(--gold);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            padding: 16px;
+            background: var(--ink);
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            text-align: center;
+        }
+
+        /* ===========================================
+           QUOTE BLOCK
+           =========================================== */
+        .quote-block {
+            padding: 80px 24px;
+            background: var(--teal);
+            text-align: center;
+        }
+
+        .quote-text {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-style: italic;
+            color: var(--sand);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.9;
+        }
+
+        .quote-author {
+            margin-top: 24px;
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* ===========================================
+           FRAMEWORK CARDS
+           =========================================== */
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .framework-card {
+            background: rgba(255,255,255,0.05);
+            border: 2px solid var(--gold);
+            padding: 40px 32px;
+            text-align: center;
+        }
+
+        .framework-badge {
+            display: inline-flex;
+            width: 56px;
+            height: 56px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--gold);
+            color: var(--ink);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+
+        .framework-card h3 {
+            color: var(--gold);
+            font-size: 1.375rem;
+            margin-bottom: 16px;
+        }
+
+        .framework-card p {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+        }
+
+        /* ===========================================
+           SEVEN ARCHETYPES
+           =========================================== */
+        .archetypes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .archetype-card {
+            background: var(--white);
+            border: 2px solid var(--ink);
+            padding: 32px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .archetype-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 6px 6px 0 var(--gold);
+            border-color: var(--teal);
+        }
+
+        .archetype-card-final {
+            border-color: var(--gold);
+            background: linear-gradient(135deg, var(--white) 0%, var(--sand-light) 100%);
+        }
+
+        .archetype-level {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 6px 14px;
+            background: var(--teal);
+            color: var(--sand);
+        }
+
+        .archetype-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .archetype-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--ink);
+            margin-bottom: 8px;
+        }
+
+        .archetype-persian {
+            font-family: 'Vazirmatn', sans-serif;
+            color: var(--crimson);
+            font-size: 1.125rem;
+            margin-bottom: 16px;
+        }
+
+        .archetype-description {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+            color: var(--teal-dark);
+        }
+
+        .archetype-test {
+            font-size: 0.9375rem;
+            font-style: italic;
+            color: var(--ink);
+            padding-top: 16px;
+            border-top: 1px solid var(--sand-dark);
+        }
+
+        .complete-human-box {
+            background: var(--teal);
+            color: var(--sand);
+            padding: 40px;
+            text-align: center;
+            border: 3px solid var(--gold);
+        }
+
+        .complete-human-box h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .complete-human-box p {
+            font-size: 1.125rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* ===========================================
+           PERSIAN TALES
+           =========================================== */
+        .tales-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .tale-card {
+            background: var(--white);
+            border: 3px solid var(--ink);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .tale-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 8px 8px 0 var(--gold);
+        }
+
+        .tale-image {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tale-emoji {
+            font-size: 4rem;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .tale-content {
+            padding: 24px;
+        }
+
+        .tale-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            color: var(--ink);
+            margin-bottom: 8px;
+        }
+
+        .tale-persian {
+            font-family: 'Vazirmatn', sans-serif;
+            color: var(--crimson);
+            font-size: 1rem;
+            margin-bottom: 16px;
+            direction: rtl;
+        }
+
+        .tale-lesson {
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            color: var(--teal-dark);
+        }
+
+        /* ===========================================
+           ALBUMS SECTION
+           =========================================== */
+        .album-card {
+            border: 3px solid var(--gold);
+            overflow: hidden;
+        }
+
+        .album-cover {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 2.5rem;
+        }
+
+        .album-info {
+            padding: 16px;
+            background: var(--ink);
+            color: var(--gold);
+            text-align: center;
+        }
+
+        .album-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .album-tracks {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* ===========================================
+           FOOTER
+           =========================================== */
+        .footer {
+            background: var(--ink);
+            color: var(--sand);
+            padding: 60px 24px 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand img {
+            width: 64px;
+            margin-bottom: 16px;
+            opacity: 0.8;
+        }
+
+        .footer-brand p {
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            opacity: 0.8;
+        }
+
+        .footer-section h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--sand);
+            opacity: 0.8;
+            font-size: 0.9375rem;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(201, 162, 39, 0.3);
+            padding-top: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-copyright {
+            font-size: 0.875rem;
+            opacity: 0.6;
+        }
+
+        .footer-tagline {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+        }
+
+        /* ===========================================
+           RESPONSIVE
+           =========================================== */
+        /* ===========================================
+           MOBILE NAVIGATION
+           =========================================== */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: 2px solid var(--ink);
+            padding: 8px 12px;
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            background: var(--ink);
+            color: var(--sand);
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--ink);
+            z-index: 200;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-nav a {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--sand);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav a:hover {
+            color: var(--gold);
+        }
+
+        .mobile-nav-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero::after {
+                display: none;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .book-feature {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .book-stats {
+                justify-content: center;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .mobile-nav {
+                display: flex;
+            }
+
+            .section-decorated::before,
+            .section-decorated::after {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header-top {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 40px 0;
+            }
+
+            .section {
+                padding: 48px 0;
+            }
+
+            .archetypes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tales-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-decorated::before,
+            .section-decorated::after {
+                display: none;
+            }
+        }
+
+        /* ===========================================
+           ANIMATIONS
+           =========================================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .animate {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .animate-left {
+            animation: fadeInLeft 0.6s ease forwards;
+        }
+
+        .animate-right {
+            animation: fadeInRight 0.6s ease forwards;
+        }
+
+        .animate-scale {
+            animation: scaleIn 0.5s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        .delay-6 { animation-delay: 0.6s; }
+
+        /* Scroll-triggered reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger children */
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .stagger-children.visible > *:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+        .stagger-children.visible > *:nth-child(2) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+        .stagger-children.visible > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+        .stagger-children.visible > *:nth-child(4) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
+        .stagger-children.visible > *:nth-child(5) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
+        .stagger-children.visible > *:nth-child(6) { transition-delay: 0.6s; opacity: 1; transform: translateY(0); }
+        .stagger-children.visible > *:nth-child(7) { transition-delay: 0.7s; opacity: 1; transform: translateY(0); }
+
+        /* ===========================================
+           GUARDIAN GRID (Enhanced Archetypes)
+           =========================================== */
+        .guardian-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 1200px) {
+            .guardian-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .guardian-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .guardian-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .guardian-card {
+            background: var(--white);
+            border: 3px solid var(--ink);
+            padding: 24px 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .guardian-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 8px 8px 0 var(--gold);
+            border-color: var(--teal);
+        }
+
+        .guardian-mu {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--teal);
+            color: var(--sand);
+            padding: 4px 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .guardian-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .guardian-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--ink);
+            margin-bottom: 4px;
+        }
+
+        .guardian-persian {
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 0.9rem;
+            color: var(--crimson);
+            direction: rtl;
+        }
+
+        /* Level color variations */
+        .guardian-card[data-level="1"] { border-top: 4px solid #8B4513; }
+        .guardian-card[data-level="2"] { border-top: 4px solid #CD853F; }
+        .guardian-card[data-level="3"] { border-top: 4px solid var(--crimson); }
+        .guardian-card[data-level="4"] { border-top: 4px solid var(--teal); }
+        .guardian-card[data-level="5"] { border-top: 4px solid var(--green); }
+        .guardian-card[data-level="6"] { border-top: 4px solid var(--gold); }
+        .guardian-card[data-level="7"] { border-top: 4px solid #9370DB; }
+
+        @media (max-width: 768px) {
+            #seven-heavens > .container > div:first-of-type {
+                grid-template-columns: 1fr !important;
+                gap: 32px !important;
+            }
+        }
+
+        /* Gold shimmer on section titles */
+        .section-title {
+            background: linear-gradient(90deg, var(--ink) 0%, var(--ink) 40%, var(--gold) 50%, var(--ink) 60%, var(--ink) 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title:hover {
+            animation: shimmer 2s ease infinite;
+        }
+
+        .section-dark .section-title {
+            background: linear-gradient(90deg, var(--gold) 0%, var(--gold) 40%, var(--sand) 50%, var(--gold) 60%, var(--gold) 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container header-top-inner">
+                <span class="header-persian">شبرنگ — shabrang.ca</span>
+                <div class="header-actions">
+                    <a href="/en/">English</a>
+                    <span style="color: var(--gold);">|</span>
+                    <a href="/fa/">فارسی</a>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container header-main-inner">
+                <a href="/" class="logo">
+                    <img src="/images/landing/shabrang_logo.png" alt="Shabrang">
+                    <span class="logo-text">Shabrang</span>
+                </a>
+                <nav class="nav">
+                    <a href="/book/">Book</a>
+                    <a href="/en/art.html">Art</a>
+                    <a href="/en/blog.html">Blog</a>
+                    <a href="/en/topics.html">Topics</a>
+                    <a href="/en/about.html">About</a>
+                </nav>
+                <button class="mobile-menu-btn" onclick="openMobileNav()">Menu</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" onclick="closeMobileNav()">&times;</button>
+        <a href="/book/" onclick="closeMobileNav()">Book</a>
+        <a href="/en/art.html" onclick="closeMobileNav()">Art</a>
+        <a href="/en/blog.html" onclick="closeMobileNav()">Blog</a>
+        <a href="/en/topics.html" onclick="closeMobileNav()">Topics</a>
+        <a href="/en/about.html" onclick="closeMobileNav()">About</a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <span>Art, Philosophy & The Persian Spirit</span>
+                    </div>
+                    <h1 class="hero-title">The Liquid Fortress</h1>
+                    <p class="hero-subtitle">A Structural History of the Persian Mind</p>
+                    <p class="hero-description">
+                        Why did Persia survive 3,000 years of invasion when every other ancient civilization died?
+                        Discover the architecture of meaning that could not be burned.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="/book/chapter1.html" class="btn btn-primary">Read Free Chapters</a>
+                        <a href="/book/" class="btn btn-secondary">Explore the Book</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="/images/landing/poster.png" alt="The Liquid Fortress - Persian Miniature">
+                    <div class="hero-image-caption">Persian Miniature Tradition</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIVIDER WITH HORSE -->
+    <div class="divider-horse">
+        <span class="divider-horse-icon"></span>
+    </div>
+
+    <!-- BOOK SECTION -->
+    <section class="section section-cream section-decorated">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Book</h2>
+                <p class="section-description">
+                    30 illustrated chapters exploring 3,000 years of Persian cultural survival through the FRC framework.
+                </p>
+            </div>
+            <div class="book-feature">
+                <div class="book-cover">
+                    <img src="/images/landing/qanat.png" alt="The Qanat - Underground water system">
+                </div>
+                <div class="book-info">
+                    <h3>The Liquid Fortress</h3>
+                    <p class="author">By Kay Hermes</p>
+                    <p>
+                        Alexander the Great burned Persepolis. The Arabs conquered the empire.
+                        The Mongols slaughtered millions. Egypt fell. Babylon fell. Assyria fell.
+                        They became footnotes, their languages dead, their identities absorbed.
+                    </p>
+                    <p>
+                        <strong style="color: var(--crimson);">But Iran is still here.</strong>
+                        Speaking Persian. Writing poetry. Celebrating Nowruz. How?
+                    </p>
+                    <div class="book-stats">
+                        <div class="stat">
+                            <div class="stat-number">3,000</div>
+                            <div class="stat-label">Years</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">7</div>
+                            <div class="stat-label">Collapses</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">30</div>
+                            <div class="stat-label">Chapters</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                        <a href="/book/chapter1.html" class="btn btn-gold">Start Reading</a>
+                        <a href="https://www.amazon.com/LIQUID-FORTRESS-Structural-History-Persian-ebook/dp/B0GBJ47F5X" class="btn btn-secondary" target="_blank">Kindle Edition</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUOTE -->
+    <section class="quote-block">
+        <p class="quote-text">
+            "The Persian does not build walls to keep enemies out. He builds gardens to keep meaning in."
+        </p>
+        <p class="quote-author">— The Liquid Fortress</p>
+    </section>
+
+    <!-- FRAMEWORK SECTION - The 7 Heavens -->
+    <section class="section section-dark" id="seven-heavens">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Seven Heavens</h2>
+                <p class="section-description" style="color: var(--sand);">
+                    The mu-Stack: Seven floors of reality, from Matter to Unity. A vertical architecture for civilizational survival.
+                </p>
+            </div>
+
+            <!-- The Ladder Overview -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+                <div>
+                    <img src="/images/landing/ladder.png" alt="The Ladder of Consciousness" style="width: 100%; border: 4px solid var(--gold); box-shadow: 8px 8px 0 var(--teal);">
+                </div>
+                <div>
+                    <h3 style="color: var(--gold); font-family: 'Cinzel', serif; font-size: 1.75rem; margin-bottom: 24px;">The Ladder of Consciousness</h3>
+                    <p style="color: var(--sand); font-size: 1.125rem; line-height: 1.9; margin-bottom: 20px;">
+                        A civilization is not a territory. It is a <strong>vertical stack of seven resonant layers</strong>.
+                        Most civilizations build Stone Fortresses — heavy on the Roots. When the State falls, they die.
+                    </p>
+                    <p style="color: var(--sand); font-size: 1.125rem; line-height: 1.9; margin-bottom: 20px;">
+                        Persia built a <strong style="color: var(--gold);">Liquid Fortress</strong> — learning to move its soul up and down the ladder,
+                        storing its identity in whichever layer was safe from the fire.
+                    </p>
+                    <p style="color: var(--sand); font-size: 1.125rem; line-height: 1.9;">
+                        To survive, a system must be <strong>strong on all seven floors</strong>.
+                    </p>
+                    <div style="margin-top: 32px;">
+                        <a href="/book/chapter2.html" class="btn btn-gold">Learn the Framework</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- GUARDIAN GRID SECTION -->
+    <section class="section section-sand section-decorated" id="guardians">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Seven Guardians</h2>
+                <p class="section-description">
+                    The archetypes who guard the Seven Floors of the Liquid Fortress — the human interface of the mu-Stack.
+                </p>
+            </div>
+
+            <!-- Guardian Grid -->
+            <div class="guardian-grid">
+                <a href="/book/appendix-b.html#king" class="guardian-card" data-level="1">
+                    <span class="guardian-mu">μ1</span>
+                    <span class="guardian-icon">👑</span>
+                    <h4 class="guardian-title">The King</h4>
+                    <p class="guardian-persian">شاه</p>
+                </a>
+                <a href="/book/appendix-b.html#mother" class="guardian-card" data-level="2">
+                    <span class="guardian-mu">μ2</span>
+                    <span class="guardian-icon">🌙</span>
+                    <h4 class="guardian-title">The Mother</h4>
+                    <p class="guardian-persian">مادر</p>
+                </a>
+                <a href="/book/appendix-b.html#knight" class="guardian-card" data-level="3">
+                    <span class="guardian-mu">μ3</span>
+                    <span class="guardian-icon">⚔️</span>
+                    <h4 class="guardian-title">The Knight</h4>
+                    <p class="guardian-persian">پهلوان</p>
+                </a>
+                <a href="/book/appendix-b.html#vizier" class="guardian-card" data-level="4">
+                    <span class="guardian-mu">μ4</span>
+                    <span class="guardian-icon">📜</span>
+                    <h4 class="guardian-title">The Vizier</h4>
+                    <p class="guardian-persian">وزیر</p>
+                </a>
+                <a href="/book/appendix-b.html#poet" class="guardian-card" data-level="5">
+                    <span class="guardian-mu">μ5</span>
+                    <span class="guardian-icon">🌹</span>
+                    <h4 class="guardian-title">The Poet</h4>
+                    <p class="guardian-persian">شاعر</p>
+                </a>
+                <a href="/book/appendix-b.html#storyteller" class="guardian-card" data-level="6">
+                    <span class="guardian-mu">μ6</span>
+                    <span class="guardian-icon">📖</span>
+                    <h4 class="guardian-title">The Storyteller</h4>
+                    <p class="guardian-persian">گوسان</p>
+                </a>
+                <a href="/book/appendix-b.html#sage" class="guardian-card" data-level="7">
+                    <span class="guardian-mu">μ7</span>
+                    <span class="guardian-icon">✨</span>
+                    <h4 class="guardian-title">The Sage</h4>
+                    <p class="guardian-persian">پیر</p>
+                </a>
+            </div>
+
+            <div class="complete-human-box">
+                <h3>The Complete Human — Insān-i Kāmil</h3>
+                <p>The Persian ideal is not to <em>become</em> one archetype, but to <em>integrate</em> all seven. The Full-Stack human who can operate on any floor as the situation demands.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PERSIAN TALES SECTION -->
+    <section class="section section-cream">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Survival Tales</h2>
+                <p class="section-description">
+                    The folk tales of the nursery are not random entertainment. They form a systematic curriculum in Liquid Fortress strategy.
+                </p>
+            </div>
+            <div class="tales-grid">
+                <div class="tale-card">
+                    <div class="tale-image" style="background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);">
+                        <span class="tale-emoji">🐟</span>
+                    </div>
+                    <div class="tale-content">
+                        <h3 class="tale-title">The Little Black Fish</h3>
+                        <p class="tale-persian">ماهی سیاه کوچولو</p>
+                        <p class="tale-lesson"><strong>The Lesson:</strong> The individual must sometimes leave the safety of the school to discover truth. Courage is more important than comfort.</p>
+                    </div>
+                </div>
+                <div class="tale-card">
+                    <div class="tale-image" style="background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);">
+                        <span class="tale-emoji">🎃</span>
+                    </div>
+                    <div class="tale-content">
+                        <h3 class="tale-title">The Rolling Pumpkin</h3>
+                        <p class="tale-persian">کدو قلقله زن</p>
+                        <p class="tale-lesson"><strong>The Lesson:</strong> When faced with overwhelming force, do not fight directly. Adopt disguises, use momentum, be spherical and slippery.</p>
+                    </div>
+                </div>
+                <div class="tale-card">
+                    <div class="tale-image" style="background: linear-gradient(135deg, var(--crimson) 0%, var(--crimson-dark) 100%);">
+                        <span class="tale-emoji">⚔️</span>
+                    </div>
+                    <div class="tale-content">
+                        <h3 class="tale-title">Rostam and Sohrab</h3>
+                        <p class="tale-persian">رستم و سهراب</p>
+                        <p class="tale-lesson"><strong>The Lesson:</strong> Even the greatest hero can commit the greatest crime through ignorance. Recognition comes too late. The price of blindness is irreversible.</p>
+                    </div>
+                </div>
+                <div class="tale-card">
+                    <div class="tale-image" style="background: linear-gradient(135deg, var(--ink) 0%, var(--teal-dark) 100%);">
+                        <span class="tale-emoji">🦅</span>
+                    </div>
+                    <div class="tale-content">
+                        <h3 class="tale-title">The Conference of the Birds</h3>
+                        <p class="tale-persian">منطق الطیر</p>
+                        <p class="tale-lesson"><strong>The Lesson:</strong> The God you seek is the Self that seeks. The journey is the destination. The Simorgh is Si-morgh (thirty birds).</p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="/book/appendix-d.html" class="btn btn-secondary">Explore All Tales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAPTERS SECTION -->
+    <section class="section section-sand">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Chapters</h2>
+            </div>
+            <div class="chapters-grid">
+                <a href="/book/chapter1.html" class="chapter-card" style="text-decoration: none; color: inherit;">
+                    <span class="chapter-badge free">Free</span>
+                    <div class="chapter-number">Chapter 1</div>
+                    <h3 class="chapter-title">The Fortress and the Corridor</h3>
+                    <p class="chapter-meta">Roots & Geometry</p>
+                </a>
+                <a href="/book/chapter2.html" class="chapter-card" style="text-decoration: none; color: inherit;">
+                    <span class="chapter-badge free">Free</span>
+                    <div class="chapter-number">Chapter 2</div>
+                    <h3 class="chapter-title">The Lens of FRC</h3>
+                    <p class="chapter-meta">Methodology</p>
+                </a>
+                <a href="/book/chapter3.html" class="chapter-card" style="text-decoration: none; color: inherit;">
+                    <span class="chapter-badge free">Free</span>
+                    <div class="chapter-number">Chapter 3</div>
+                    <h3 class="chapter-title">The First Binary</h3>
+                    <p class="chapter-meta">Asha & Druj</p>
+                </a>
+                <a href="/book/chapter4.html" class="chapter-card" style="text-decoration: none; color: inherit;">
+                    <span class="chapter-badge free">Free</span>
+                    <div class="chapter-number">Chapter 4</div>
+                    <h3 class="chapter-title">The Myth of the Border</h3>
+                    <p class="chapter-meta">Arash & Sacrifice</p>
+                </a>
+                <a href="/book/chapter11.html" class="chapter-card" style="text-decoration: none; color: inherit;">
+                    <span class="chapter-badge premium">Premium</span>
+                    <div class="chapter-number">Chapter 11</div>
+                    <h3 class="chapter-title">The Shock of Conquest</h3>
+                    <p class="chapter-meta">Qadisiyah</p>
+                </a>
+                <a href="/book/chapter16.html" class="chapter-card" style="text-decoration: none; color: inherit;">
+                    <span class="chapter-badge premium">Premium</span>
+                    <div class="chapter-number">Chapter 16</div>
+                    <h3 class="chapter-title">The Architect of Light</h3>
+                    <p class="chapter-meta">Suhrawardi</p>
+                </a>
+            </div>
+            <div style="text-align: center; margin-top: 48px;">
+                <a href="/book/" class="btn btn-primary">View All 30 Chapters</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALBUMS SECTION -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Albums by Kay Hermes</h2>
+                <p class="section-description" style="color: var(--sand);">
+                    Musical explorations inspired by Persian poetry and philosophy.
+                </p>
+            </div>
+            <div class="gallery-grid">
+                <div class="album-card">
+                    <div class="album-cover" style="background: linear-gradient(135deg, var(--crimson) 0%, var(--teal) 100%);">
+                        <span style="color: var(--gold);">جام جم</span>
+                    </div>
+                    <div class="album-info">
+                        <div class="album-title">The Mirror of Jam-e Jam</div>
+                        <div class="album-tracks">8 tracks</div>
+                    </div>
+                </div>
+                <div class="album-card">
+                    <div class="album-cover" style="background: linear-gradient(135deg, var(--sand-dark) 0%, var(--teal-dark) 100%);">
+                        <span style="color: var(--crimson);">برف</span>
+                    </div>
+                    <div class="album-info">
+                        <div class="album-title">Be Melting Snow</div>
+                        <div class="album-tracks">8 tracks</div>
+                    </div>
+                </div>
+                <div class="album-card">
+                    <div class="album-cover" style="background: linear-gradient(135deg, var(--ink) 0%, var(--crimson-dark) 100%);">
+                        <span style="color: var(--gold);">صنعت</span>
+                    </div>
+                    <div class="album-info">
+                        <div class="album-title">The Industrial Land</div>
+                        <div class="album-tracks">8 tracks</div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 48px;">
+                <a href="https://open.spotify.com/search/kay%20hermes" target="_blank" class="btn btn-gold">Listen on Spotify</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="section section-crimson">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title" style="color: var(--sand);">Enter the Fortress</h2>
+            <p class="section-description" style="color: var(--sand); margin-bottom: 40px;">
+                The first 5 chapters are completely free. Start your journey into 3,000 years of Persian survival.
+            </p>
+            <a href="/book/chapter1.html" class="btn btn-gold">Start Reading Free</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="/images/landing/shabrang_logo.png" alt="Shabrang">
+                    <p>Art, philosophy, and the Persian spirit. The Liquid Fortress — a journey through coherence.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigate</h4>
+                    <ul class="footer-links">
+                        <li><a href="/book/">Book</a></li>
+                        <li><a href="/en/art.html">Art</a></li>
+                        <li><a href="/en/blog.html">Blog</a></li>
+                        <li><a href="/en/topics.html">Topics</a></li>
+                        <li><a href="/en/about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.amazon.com/LIQUID-FORTRESS-Structural-History-Persian-ebook/dp/B0GBJ47F5X" target="_blank">Kindle</a></li>
+                        <li><a href="https://github.com/Digidinc/shabrang-cms" target="_blank">GitHub</a></li>
+                        <li><a href="https://open.spotify.com/search/kay%20hermes" target="_blank">Spotify</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="/en/privacy.html">Privacy</a></li>
+                        <li><a href="/en/terms.html">Terms</a></li>
+                        <li><a href="/en/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="footer-copyright">Kay Hermes &copy; 2025. All rights reserved.</span>
+                <span class="footer-tagline">The Mind That Could Not Be Burned</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        function openMobileNav() {
+            document.getElementById('mobileNav').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileNav() {
+            document.getElementById('mobileNav').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Intersection Observer for scroll animations
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Optional: unobserve after revealing
+                    // revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe elements for reveal animation
+        document.querySelectorAll('.section-header, .book-feature, .complete-human-box').forEach(el => {
+            el.classList.add('reveal');
+            revealObserver.observe(el);
+        });
+
+        // Stagger animation for grids
+        document.querySelectorAll('.archetypes-grid, .tales-grid, .chapters-grid, .gallery-grid, .framework-grid').forEach(el => {
+            el.classList.add('stagger-children');
+            revealObserver.observe(el);
+        });
+
+        // Individual card animations
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.chapter-card, .framework-card, .stat, .gallery-item, .album-card, .archetype-card, .tale-card').forEach(el => {
+            cardObserver.observe(el);
+        });
+
+        // Parallax effect on scroll (subtle)
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrolled = window.pageYOffset;
+                    const hero = document.querySelector('.hero');
+                    if (hero && scrolled < window.innerHeight) {
+                        hero.style.setProperty('--scroll', scrolled * 0.3 + 'px');
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Add parallax CSS variable usage
+        document.documentElement.style.setProperty('--scroll', '0px');
+
+    </script>
+
+</body>
+</html>
