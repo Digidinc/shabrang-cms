@@ -8,7 +8,7 @@ import { BooksSidebar } from '@/components/BooksSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
-import { estimateReadTime, getBook, getBooks, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
+import { estimateReadTime, getBook, getBooks, getBookChapters, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
 import { schemaPaperPage } from '@/lib/schema';
 import { getChapterList } from '@/lib/bookChapters';
 import { renderMarkdown } from '@/lib/markdown';
@@ -84,7 +84,21 @@ export default async function BookPage({ params }: Props) {
   });
 
   const renderedBody = renderMarkdown(book.body, lang, glossary, basePath);
-  const chapterItems = getChapterList(book.body);
+  
+  // Check for folder-based chapters first
+  const folderChapters = getBookChapters(lang, id);
+  let chapterItems;
+
+  if (folderChapters.length > 0) {
+    chapterItems = folderChapters.map(c => ({
+      anchorId: c.filename.replace(/\.md$/, ''),
+      title: c.title,
+      slug: c.filename.replace(/\.md$/, '')
+    }));
+  } else {
+    chapterItems = getChapterList(book.body);
+  }
+
   const tocItems = chapterItems.map((c) => ({ id: c.anchorId, text: c.title, level: 1 }));
 
   return (

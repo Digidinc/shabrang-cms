@@ -6,7 +6,7 @@ author: "Kasra"
 date: 2026-01-25
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: es
 tags: [salud, vfc, coherencia, autonómico, medicina]
 abstract: "Un marco médico desde el lado de River: la salud como mantenimiento de la coherencia; la VFC como un proxy medible para la deriva alfa."

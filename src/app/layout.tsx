@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     template: '%s | FRC',
   },
   description: 'Research platform for the Fractal Resonance Cognition framework — exploring consciousness, coherence, and quantum foundations.',
-  keywords: ['FRC', 'fractal resonance', 'coherence', 'consciousness', 'quantum mechanics', 'entropy', 'reciprocity'],
-  authors: [{ name: 'Hadi Servat' }],
+  keywords: ['FRC', 'fractal resonance', 'coherence', 'consciousness', 'quantum mechanics', 'entropy', 'reciprocity', 'Shabrang', 'Liquid Fortress'],
+  authors: [{ name: 'Shabrang Team' }],
   metadataBase: new URL('https://fractalresonance.com'),
   openGraph: {
     type: 'website',

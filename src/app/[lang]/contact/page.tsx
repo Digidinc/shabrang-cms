@@ -20,26 +20,25 @@ export default function ContactPage() {
 
       <section className="border border-frc-blue p-8 space-y-6">
         <p className="text-frc-text leading-relaxed">
-          We welcome inquiries, collaborations, and discussions related to Fractal Resonance Cognition (FRC).
-          If you have questions about the framework, want to explore research partnerships, or wish to share
-          your insights, feel free to reach out.
+          We welcome inquiries, collaborations, and discussions related to The Liquid Fortress and Shabrang.
+          If you have questions about the book, want to explore the FRC framework, or wish to join the community, feel free to reach out.
         </p>
 
         <div className="space-y-3 text-frc-text-dim">
           <p>
             <span className="text-frc-text">Email:</span>{' '}
-            <a className="hover:text-frc-gold" href="mailto:publish@fractalresonance.com">
-              publish@fractalresonance.com
+            <a className="hover:text-frc-gold" href="mailto:hello@shabrang.ca">
+              hello@shabrang.ca
             </a>
           </p>
           <p>
             <span className="text-frc-text">Website:</span>{' '}
-            <a className="hover:text-frc-gold" href="https://fractalresonance.com" target="_blank" rel="noopener noreferrer">
-              fractalresonance.com
+            <a className="hover:text-frc-gold" href="https://shabrang.ca" target="_blank" rel="noopener noreferrer">
+              shabrang.ca
             </a>
           </p>
           <p>
-            <span className="text-frc-text">Author:</span> Hadi Servat
+            <span className="text-frc-text">Team:</span> The Shabrang Team
           </p>
         </div>
 

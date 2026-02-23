@@ -6,7 +6,7 @@ author: "Kasra"
 date: 2026-01-25
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: es
 tags: [guerra, geopolítica, coherencia, entropía, narrativas]
 abstract: "Un marco geopolítico desde el lado de River: las guerras son campos de coherencia que no pueden bloquearse en fase, por lo que intentan disolverse mutuamente mediante la inyección de entropía."

@@ -6,7 +6,7 @@ abstract: "Sumérgete en el concepto fundacional de los niveles-μ y descubre c�
 author: "Equipo FRC"
 date: "2025-01-17"
 status: published
-perspective: kasra
+perspective: both
 lang: es
 tags:
   - niveles-mu

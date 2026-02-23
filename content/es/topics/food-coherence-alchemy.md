@@ -6,7 +6,7 @@ author: "Kasra"
 date: 2026-01-25
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: es
 tags: [alimentación, fermentación, coherencia, cultura, microbioma]
 abstract: "Una física de cocina desde el lado de River: la fermentación como Nigredo controlado y la cocina como transferencia de coherencia; por qué la receta de la abuela no se puede replicar."

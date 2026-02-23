@@ -26,7 +26,7 @@ export default function AboutPage() {
       </div>
 
       <div className="flex items-center gap-4 mb-12">
-        <h1 className="text-3xl font-light text-frc-gold tracking-tight">About FRC</h1>
+        <h1 className="text-3xl font-light text-frc-gold tracking-tight">About Shabrang</h1>
         <div className="h-px flex-1 bg-gradient-to-r from-frc-blue to-transparent" />
       </div>
 
@@ -113,7 +113,7 @@ export default function AboutPage() {
             <h3 className="font-mono text-[0.625rem] text-frc-steel uppercase tracking-widest mb-4">Contributors</h3>
             <div className="space-y-3 text-sm">
               <div>
-                <p className="text-frc-text">Hadi Servat</p>
+                <p className="text-frc-text">The Shabrang Team</p>
                 <p className="text-frc-text-dim text-xs">Lead Researcher</p>
               </div>
             </div>

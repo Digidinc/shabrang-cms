@@ -6,7 +6,7 @@ abstract: "Explore how FRC challenges the notion of inherent randomness in the u
 author: "FRC Team"
 date: "2025-01-10"
 status: published
-perspective: kasra
+perspective: both
 lang: en
 tags:
   - determinism

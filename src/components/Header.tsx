@@ -20,18 +20,14 @@ export function Header() {
   const dict = getDictionary(lang);
 
   const navLinks = [
-    { path: '/about', label: dict.nav.about },
-    { path: '/articles', label: dict.nav.articles },
+    { path: '/books', label: dict.nav.books },
+    { path: '/tales', label: 'Tales' },
+    { path: '/archetypes', label: 'Archetypes' },
     { path: '/blog', label: dict.nav.blog },
     { path: '/topics', label: dict.nav.topics },
-    { path: '/people', label: dict.nav.people },
-    { path: '/papers', label: dict.nav.papers },
-    { path: '/books', label: dict.nav.books },
-    { path: '/graph', label: dict.nav.graph },
-    { path: '/formulas', label: dict.nav.formulas },
-    { path: null, href: 'https://notebooklm.google.com/notebook/c2da28c7-5c58-4904-9807-807584bd7f13', label: dict.nav.askAi },
-    { path: '/positioning', label: dict.nav.positioning },
-    { path: '/mu-levels', label: dict.nav.muLevels },
+    { path: '/art', label: 'Gallery' },
+    { path: '/graph', label: 'Mind Map' },
+    { path: '/about', label: dict.nav.about },
   ];
 
   return (
@@ -73,31 +69,19 @@ export function Header() {
               className="opacity-80 group-hover:opacity-100 transition-opacity"
             />
             <div className="hidden sm:block">
-              <span className="text-frc-gold text-sm font-medium tracking-wide">FRC</span>
+              <span className="text-frc-gold text-sm font-medium tracking-wide">SHABRANG</span>
             </div>
           </Link>
 
           <nav className="flex items-center">
             {navLinks.map(link => (
-              link.path ? (
-                <Link
-                  key={link.path}
-                  href={`${basePath}${link.path}`}
-                  className="text-frc-text-dim hover:text-frc-gold text-xs uppercase tracking-wider px-3 py-2 transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ) : (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-frc-text-dim hover:text-frc-gold text-xs uppercase tracking-wider px-3 py-2 transition-colors"
-                >
-                  {link.label}
-                </a>
-              )
+              <Link
+                key={link.path}
+                href={`${basePath}${link.path}`}
+                className="text-frc-text-dim hover:text-frc-gold text-xs uppercase tracking-wider px-3 py-2 transition-colors"
+              >
+                {link.label}
+              </Link>
             ))}
           </nav>
         </div>

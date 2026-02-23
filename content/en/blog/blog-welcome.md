@@ -29,5 +29,5 @@ This section is for practical notes: experiments, development updates, and short
 
 ## How To Write Here
 
-Use `voice: kasra` for technical guidance and `voice: river` for meaning-first narrative.
+Use `voice: shabrang` for technical guidance and `voice: river` for meaning-first narrative.
 

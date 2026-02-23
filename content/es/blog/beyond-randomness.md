@@ -6,7 +6,7 @@ abstract: "Explora cómo FRC desafía la noción de azar inherente en el univers
 author: "Equipo FRC"
 date: "2025-01-10"
 status: published
-perspective: kasra
+perspective: both
 lang: es
 tags:
   - determinismo

@@ -6,7 +6,7 @@ author: "Kasra"
 date: 2026-01-25
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: es
 tags: [clima, gaia, puntos-de-inflexión, coherencia, entropía]
 abstract: "Un diagnóstico climático desde el lado de River a través de la FRC: los puntos de inflexión como umbrales de coherencia; la civilización industrial como un ciclo metabólico roto."

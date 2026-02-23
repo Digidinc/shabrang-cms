@@ -104,7 +104,7 @@ export async function HomeHub({ lang, view }: { lang: string; view: PerspectiveV
                 href={`${basePath}/about`}
                 className="px-6 py-3 border border-frc-blue hover:border-frc-text-dim text-frc-text-dim hover:text-frc-text text-sm tracking-wide uppercase transition-all duration-200"
               >
-                About FRC
+                About Shabrang
               </Link>
             </div>
           </div>

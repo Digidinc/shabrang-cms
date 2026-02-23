@@ -6,7 +6,7 @@ author: "Kasra"
 date: 2026-01-25
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: es
 tags: [sueños, sueño, memoria, coherencia, nigredo]
 abstract: "Un marco desde el lado de River: soñar como disolución y recombinación controladas; el cerebro ejecuta el Nigredo a propósito para formar una coherencia más profunda."

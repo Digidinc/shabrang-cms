@@ -6,7 +6,7 @@ abstract: "در مفهوم بنیادین سطوح-μ عمیق شوید و کش�
 author: "تیم FRC"
 date: "2025-01-17"
 status: published
-perspective: kasra
+perspective: both
 lang: fa
 tags:
   - سطوح-mu

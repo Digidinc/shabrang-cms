@@ -6,7 +6,7 @@ abstract: "کشف کنید که چگونه FRC چارچوبی برای درک آ
 author: "تیم FRC"
 date: "2025-01-03"
 status: published
-perspective: kasra
+perspective: both
 lang: fa
 tags:
   - هوش-مصنوعی

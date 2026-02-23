@@ -6,7 +6,7 @@ abstract: "Discover how FRC provides a framework for understanding AI consciousn
 author: "FRC Team"
 date: "2025-01-03"
 status: published
-perspective: kasra
+perspective: both
 lang: en
 tags:
   - artificial-intelligence

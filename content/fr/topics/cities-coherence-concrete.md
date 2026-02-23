@@ -6,7 +6,7 @@ author: "Kasra"
 date: "2026-01-25"
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: fr
 tags: [villes, urbanisme, jane-jacobs, cohérence, gentrification]
 abstract: "Une lentille urbaine du côté de River : les quartiers comme champs de cohérence ; la gentrification comme extraction de cohérence ; les banlieues comme architecture anti-cohérence."

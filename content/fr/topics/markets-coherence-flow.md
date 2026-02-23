@@ -6,7 +6,7 @@ author: "Kasra"
 date: "2026-01-25"
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: fr
 tags: [marches, finance, coherence, entropie, recits]
 abstract: "Une lecture du marché du côté de River exprimée à travers la FRC : la concentration se dissout, la distribution se forme ; la cohérence se déplace entre les conteneurs."

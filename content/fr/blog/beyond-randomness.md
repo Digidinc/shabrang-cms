@@ -6,7 +6,7 @@ abstract: "Découvrez comment la FRC remet en question la notion de hasard inhé
 author: "Équipe FRC"
 date: "2025-01-10"
 status: published
-perspective: kasra
+perspective: both
 lang: fr
 tags:
   - determinisme

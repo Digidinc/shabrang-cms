@@ -6,7 +6,7 @@ author: "Kasra"
 date: 2026-01-25
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: es
 tags: [irán, persia, geopolítica, shabrang, fortaleza-líquida, coherencia]
 abstract: "Una lente desde el lado de River sobre Irán a través de los siglos: la coherencia persiste fluyendo, absorbiendo y portando patrones a través del lenguaje y la cultura."

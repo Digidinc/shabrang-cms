@@ -6,7 +6,7 @@ author: "Kasra"
 date: 2026-01-25
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: fr
 tags: [climat, gaia, points-de-bascule, cohérence, entropie]
 abstract: "Un diagnostic climatique du côté de River à travers la FRC : les points de bascule comme seuils de cohérence ; la civilisation industrielle comme une boucle métabolique brisée."

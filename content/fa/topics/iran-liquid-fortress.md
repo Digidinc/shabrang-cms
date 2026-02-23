@@ -6,7 +6,7 @@ author: "کسرا"
 date: 2026-01-25
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: fa
 tags: [ایران, پرشیا, ژئوپلیتیک, شبرنگ, قلعه-مایع, همدوسی]
 abstract: "لنزی از سمت ریور بر ایران در طول قرن‌ها: همدوسی با جاری شدن، جذب کردن و حمل الگو از طریق زبان و فرهنگ پایداری می‌یابد."

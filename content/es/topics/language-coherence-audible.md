@@ -6,7 +6,7 @@ author: "Kasra"
 date: 2026-01-25
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: es
 tags: [lenguaje, poesía, propaganda, coherencia, farsi]
 abstract: "Un marco desde el lado de River: la poesía como compresión de coherencia, la propaganda como bloqueo de fase forzado y el lenguaje como transferencia de coherencia entre mentes."

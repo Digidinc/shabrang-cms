@@ -6,7 +6,7 @@ author: "Kasra"
 date: "2026-01-25"
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: fr
 tags: [guerre, geopolitique, coherence, entropie, recits]
 abstract: "Un cadre géopolitique du côté de River : les guerres sont des champs de cohérence qui ne peuvent pas se verrouiller en phase, ils tentent donc de se dissoudre mutuellement par l'injection d'entropie."

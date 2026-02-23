@@ -6,7 +6,7 @@ author: "Kasra"
 date: "2026-01-25"
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: fr
 tags: [iran, perse, geopolitique, shabrang, forteresse-liquide, coherence]
 abstract: "Une lentille du côté de River sur l'Iran à travers les siècles : la cohérence persiste en coulant, en absorbant et en transportant le motif à travers la langue et la culture."

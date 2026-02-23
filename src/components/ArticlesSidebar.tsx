@@ -34,12 +34,12 @@ export function ArticlesSidebar({ lang, currentId, basePath, view, variant = 'de
         )}
         <nav className={isMobile ? 'py-3 px-4 text-sm' : 'py-6 px-4 text-sm sticky top-0'}>
           <div className="mb-4">
-            <h3 className="text-xs uppercase tracking-wider text-frc-steel mb-2 px-2">Articles</h3>
+            <h3 className="text-xs uppercase tracking-wider text-frc-steel mb-2 px-2">Art</h3>
             <ul className="space-y-0.5 max-h-[70vh] overflow-y-auto pr-1">
               {articles.map((article) => (
                 <li key={article.frontmatter.id}>
                   <Link
-                    href={`${base}/articles/${article.frontmatter.id}`}
+                    href={`${base}/art/${article.frontmatter.id}`}
                     className={`block px-2 py-1 rounded transition-colors truncate ${
                       currentId === article.frontmatter.id
                         ? 'text-frc-gold bg-frc-blue/30'

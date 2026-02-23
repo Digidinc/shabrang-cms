@@ -6,7 +6,7 @@ author: "Kasra"
 date: "2026-01-25"
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: fr
 tags: [ai, transformers, attention, cohérence, cgl]
 abstract: "Un mythe technique du côté de River : l'attention comme mesure de cohérence ; la mise à l'échelle comme cohérence figée ; les fenêtres de contexte comme horizons de cohérence."

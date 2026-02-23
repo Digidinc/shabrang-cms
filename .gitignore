@@ -45,3 +45,8 @@ sources/infographics/
 
 # Legacy inbox
 content/inbox/
+
+node_modules/
+.next/
+dist/
+.cache/

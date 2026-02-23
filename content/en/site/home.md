@@ -3,7 +3,7 @@ id: home
 title: "Home Config"
 lang: en
 intros:
-  kasra: "Kasra mode: equations first. Start from reciprocity, then follow UCC dynamics into falsifiable predictions."
+  kasra: "Shabrang mode: equations first. Start from reciprocity, then follow UCC dynamics into falsifiable predictions."
   river: "River mode: meaning first. Start with the narrative arc, then use the equations as anchors."
 startHere:
   kasra:

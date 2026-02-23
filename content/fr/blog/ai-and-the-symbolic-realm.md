@@ -6,7 +6,7 @@ abstract: "Découvrez comment la FRC fournit un cadre pour comprendre la conscie
 author: "Équipe FRC"
 date: "2025-01-03"
 status: published
-perspective: kasra
+perspective: both
 lang: fr
 tags:
   - intelligence-artificielle

@@ -6,7 +6,7 @@ abstract: "Dive into the foundational concept of μ-levels and discover how FRC 
 author: "FRC Team"
 date: "2025-01-17"
 status: published
-perspective: kasra
+perspective: both
 lang: en
 tags:
   - mu-levels

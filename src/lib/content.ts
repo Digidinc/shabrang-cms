@@ -353,6 +353,62 @@ export function getTopic(lang: string, id: string): ParsedContent | null {
   return null;
 }
 
+/** Get all archetypes for a language */
+export function getArchetypes(lang: string = 'en'): ParsedContent[] {
+  const dir = path.join(CONTENT_DIR, lang, 'archetypes');
+  if (!fs.existsSync(dir)) return [];
+
+  return fs.readdirSync(dir)
+    .filter((f) => f.endsWith('.md'))
+    .map((f) => {
+      const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
+      return parseFrontmatter(raw);
+    })
+    .sort((a, b) => (a.frontmatter.date || '').localeCompare(b.frontmatter.date || ''));
+}
+
+/** Get a single archetype by id */
+export function getArchetype(lang: string, id: string): ParsedContent | null {
+  const dir = path.join(CONTENT_DIR, lang, 'archetypes');
+  if (!fs.existsSync(dir)) return null;
+
+  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
+  for (const f of files) {
+    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
+    const parsed = parseFrontmatter(raw);
+    if (parsed.frontmatter.id === id) return parsed;
+  }
+  return null;
+}
+
+/** Get all tales for a language */
+export function getTales(lang: string = 'en'): ParsedContent[] {
+  const dir = path.join(CONTENT_DIR, lang, 'tales');
+  if (!fs.existsSync(dir)) return [];
+
+  return fs.readdirSync(dir)
+    .filter((f) => f.endsWith('.md'))
+    .map((f) => {
+      const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
+      return parseFrontmatter(raw);
+    })
+    .sort((a, b) => (a.frontmatter.date || '').localeCompare(b.frontmatter.date || ''));
+}
+
+/** Get a single tale by id */
+export function getTale(lang: string, id: string): ParsedContent | null {
+  const dir = path.join(CONTENT_DIR, lang, 'tales');
+  if (!fs.existsSync(dir)) return null;
+
+  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
+  for (const f of files) {
+    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
+    const parsed = parseFrontmatter(raw);
+    if (parsed.frontmatter.id === id) return parsed;
+  }
+  return null;
+}
+
 /** Get all people/profiles for a language */
 export function getPeople(lang: string = 'en'): ParsedContent[] {
   const dir = path.join(CONTENT_DIR, lang, 'people');
@@ -1086,9 +1142,9 @@ export function extractWikilinks(body: string): WikiLink[] {
 
 // ─── SEO Helpers ────────────────────────────────────────────────────────────
 
-const SITE_URL = 'https://fractalresonance.com';
+const SITE_URL = 'https://shabrang.ca';
 
-export type ContentType = 'papers' | 'articles' | 'concepts' | 'books' | 'blog' | 'topics' | 'people';
+export type ContentType = 'papers' | 'articles' | 'concepts' | 'books' | 'blog' | 'topics' | 'people' | 'archetypes' | 'tales';
 
 /** Check if content exists in a specific language */
 export function contentExistsInLang(type: ContentType, lang: string, id: string): boolean {
@@ -1099,7 +1155,7 @@ export function contentExistsInLang(type: ContentType, lang: string, id: string)
     books: getBook,
     blog: getBlogPost,
     topics: getTopic,
-    people: getPerson,
+    people: getPerson, archetypes: getArchetype, tales: getTale,
   } as const;
   return getters[type](lang, id) !== null;
 }

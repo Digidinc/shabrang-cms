@@ -6,7 +6,7 @@ author: "Kasra"
 date: 2026-01-25
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: fr
 tags: [langage, poesie, propagande, coherence, farsi]
 abstract: "Un cadre du côté de River : la poésie comme compression de cohérence, la propagande comme verrouillage de phase forcé, et le langage comme transfert de cohérence entre les esprits."

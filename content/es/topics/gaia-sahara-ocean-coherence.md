@@ -6,7 +6,7 @@ author: "Kasra"
 date: 2026-01-25
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: es
 tags: [gaia, coherencia, entropía, niveles-mu, sistemas-terrestres]
 abstract: "Un dossier desde el lado de River: desiertos, océanos y la hipótesis Gaia a través de la reciprocidad coherencia/entropía de la FRC."

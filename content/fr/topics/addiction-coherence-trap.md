@@ -6,7 +6,7 @@ author: "Kasra"
 date: 2026-01-25
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: fr
 tags: [addiction, dopamine, apprentissage, cohérence, santé]
 abstract: "Un mécanisme du côté de River : l'addiction comme une cohérence qui fonctionne trop bien, rétrécissant la porte de l'apprentissage à une seule fréquence et piégeant le système dans un minimum local."

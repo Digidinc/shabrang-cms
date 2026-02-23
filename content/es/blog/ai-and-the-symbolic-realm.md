@@ -6,7 +6,7 @@ abstract: "Descubre cómo FRC proporciona un marco para comprender la conciencia
 author: "Equipo FRC"
 date: "2025-01-03"
 status: published
-perspective: kasra
+perspective: both
 lang: es
 tags:
   - inteligencia-artificial

@@ -29,4 +29,4 @@ Esta sección es para notas prácticas: experimentos, actualizaciones de desarro
 
 ## Cómo escribir aquí
 
-Usa `voice: kasra` para orientación técnica y `voice: river` para narrativa centrada en el significado.
+Usa `voice: shabrang` para orientación técnica y `voice: river` para narrativa centrada en el significado.

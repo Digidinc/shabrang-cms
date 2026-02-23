@@ -6,7 +6,7 @@ author: "Kasra"
 date: 2026-01-25
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: fr
 tags: [rêves, sommeil, mémoire, cohérence, nigredo]
 abstract: "Un cadre du côté de River : le rêve comme dissolution et recombinaison contrôlées ; le cerveau exécute le Nigredo exprès pour former une cohérence plus profonde."

@@ -6,7 +6,7 @@ abstract: "کشف کنید که چگونه FRC مفهوم تصادفی بودن 
 author: "تیم FRC"
 date: "2025-01-10"
 status: published
-perspective: kasra
+perspective: both
 lang: fa
 tags:
   - دترمینیسم

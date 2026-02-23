@@ -6,7 +6,7 @@ author: "Kasra"
 date: 2026-01-25
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: fr
 tags: [santé, vfc, cohérence, autonome, médecine]
 abstract: "Un cadre médical du côté de River : la santé comme maintien de la cohérence ; la VFC comme proxy mesurable de la dérive alpha."

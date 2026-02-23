@@ -6,7 +6,7 @@ author: "Kasra"
 date: 2026-01-25
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: es
 tags: [ia, transformers, atención, coherencia, cgl]
 abstract: "Un mito técnico desde el lado de River: la atención como medida de coherencia; el escalado como coherencia congelada; las ventanas de contexto como horizontes de coherencia."

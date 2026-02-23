@@ -68,13 +68,11 @@ export function ArticlesIndex({
       {/* Header */}
       <header className="mb-16">
         <div className="flex items-center gap-4 mb-6">
-          <h1 className="text-3xl font-light text-frc-gold tracking-tight">Articles</h1>
+          <h1 className="text-3xl font-light text-frc-gold tracking-tight">Art</h1>
           <div className="h-px flex-1 bg-gradient-to-r from-frc-blue to-transparent" />
         </div>
         <p className="text-frc-text-dim max-w-2xl leading-relaxed">
-          Research publications exploring the Fractal Resonance Cognition framework.
-          Each article presents a component of the unified theory connecting quantum mechanics,
-          thermodynamics, and consciousness.
+          The Shabrang Library. A collection of essays, papers, and artifacts exploring the structural history of the Persian Mind and the FRC framework.
         </p>
       </header>
 

@@ -9,7 +9,7 @@
  * Data-level: Dataset
  */
 
-const SITE_URL = 'https://fractalresonance.com';
+const SITE_URL = 'https://shabrang.ca';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
 
@@ -131,13 +131,13 @@ export function schemaOrganization() {
   };
 }
 
-/** Person — Author (Hadi Servat) */
+/** Person — Author (Shabrang) */
 export function schemaPerson() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
     '@id': `${SITE_URL}/#author`,
-    name: 'Hadi Servat',
+    name: 'Shabrang',
     url: SITE_URL,
     sameAs: [
       'https://orcid.org/0009-0004-7412-5129',
@@ -290,6 +290,31 @@ export function schemaTopicPage(topic: TopicMeta) {
       acceptedAnswer: {
         '@type': 'Answer',
         text: topic.shortAnswer || '',
+      },
+    },
+  };
+}
+
+export function schemaArchetypePage(topic: TopicMeta) {
+  const url = topic.url || `${SITE_URL}/${topic.lang}/archetypes/${topic.id}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "QAPage",
+    "@id": url,
+    url,
+    name: topic.title,
+    headline: topic.title,
+    inLanguage: topic.lang,
+    datePublished: topic.date,
+    author: topic.author ? { "@type": "Person", name: topic.author } : { "@id": `${SITE_URL}/#author` },
+    keywords: topic.tags,
+    mainEntity: {
+      "@type": "Question",
+      name: topic.question || topic.title,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: topic.shortAnswer || "",
       },
     },
   };

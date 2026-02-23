@@ -6,7 +6,7 @@ author: "Kasra"
 date: 2026-01-25
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: fr
 tags: [éducation, apprentissage, cgl, attention, ennui]
 abstract: "Un cadre éducatif du côté de River : le CGL dit que l'apprentissage ne se produit que lorsque l'alpha est non nul ; l'ennui est un signal diagnostique d'une porte fermée."

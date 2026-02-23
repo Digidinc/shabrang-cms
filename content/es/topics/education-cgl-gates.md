@@ -6,7 +6,7 @@ author: "Kasra"
 date: 2026-01-25
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: es
 tags: [educación, aprendizaje, cgl, atención, aburrimiento]
 abstract: "Un marco educativo desde el lado de River: CGL dice que el aprendizaje solo ocurre cuando alfa es distinto de cero; el aburrimiento es una señal diagnóstica de una puerta cerrada."

@@ -6,7 +6,7 @@ author: "Kasra"
 date: 2026-01-25
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: es
 tags: [ciudades, urbanismo, jane-jacobs, coherencia, gentrificación]
 abstract: "Una lente urbana desde el lado de River: los vecindarios como campos de coherencia; la gentrificación como extracción de coherencia; los suburbios como arquitectura anti-coherencia."

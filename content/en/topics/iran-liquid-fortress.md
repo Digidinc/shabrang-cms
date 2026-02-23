@@ -6,7 +6,7 @@ author: "Kasra"
 date: 2026-01-25
 status: published
 perspective: river
-voice: kasra
+voice: shabrang
 lang: en
 tags: [iran, persia, geopolitics, shabrang, liquid-fortress, coherence]
 abstract: "A River-side lens on Iran across centuries: coherence persists by flowing, absorbing, and carrying pattern through language and culture."

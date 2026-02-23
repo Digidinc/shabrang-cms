@@ -12,6 +12,7 @@ import {
   estimateReadTime,
   getBook,
   getBooks,
+  getBookChapters,
   getLanguages,
   toPaperMeta,
   getGlossary,
@@ -36,12 +37,26 @@ export async function generateStaticParams() {
     for (const book of books) {
       const full = getBook(lang, book.frontmatter.id);
       if (!full) continue;
-      const chapters = getChapterList(full.body);
-      for (const c of chapters) {
-        const key = `${lang}:${book.frontmatter.id}:${c.slug}`;
-        if (seen.has(key)) continue;
-        seen.add(key);
-        params.push({ lang, id: book.frontmatter.id, chapter: c.slug });
+
+      // Check folder chapters first
+      const folderChapters = getBookChapters(lang, book.frontmatter.id);
+      if (folderChapters.length > 0) {
+        for (const c of folderChapters) {
+          const slug = c.filename.replace(/\.md$/, '');
+          const key = `${lang}:${book.frontmatter.id}:${slug}`;
+          if (seen.has(key)) continue;
+          seen.add(key);
+          params.push({ lang, id: book.frontmatter.id, chapter: slug });
+        }
+      } else {
+        // Fallback to single-file chapters
+        const chapters = getChapterList(full.body);
+        for (const c of chapters) {
+          const key = `${lang}:${book.frontmatter.id}:${c.slug}`;
+          if (seen.has(key)) continue;
+          seen.add(key);
+          params.push({ lang, id: book.frontmatter.id, chapter: c.slug });
+        }
       }
     }
   }
@@ -99,7 +114,21 @@ export default async function BookChapterPage({ params }: Props) {
   const fm = book.frontmatter;
   const readTime = fm.read_time || estimateReadTime(book.body);
 
-  const derived = deriveChaptersFromMarkdown(book.body);
+  // Hybrid approach: Check for folder-based chapters first
+  const folderChapters = getBookChapters(lang, id);
+  let derived;
+
+  if (folderChapters.length > 0) {
+    derived = folderChapters.map(c => ({
+      anchorId: '', // not needed for folder chapters
+      title: c.title,
+      slug: c.filename.replace(/\.md$/, ''),
+      markdown: c.body
+    }));
+  } else {
+    derived = deriveChaptersFromMarkdown(book.body);
+  }
+
   const current = derived.find((c) => c.slug === chapter) || null;
   if (!current) notFound();
 
@@ -109,7 +138,13 @@ export default async function BookChapterPage({ params }: Props) {
 
   const renderedBody = renderMarkdown(current.markdown, lang, glossary, basePath);
   const tocItems = extractTocItems(current.markdown).filter((t) => t.level === 2);
-  const chapterItems = getChapterList(book.body);
+  
+  // Use the derived chapters for the sidebar list instead of re-parsing book.body
+  const chapterItems = derived.map(c => ({ 
+      anchorId: c.anchorId, 
+      title: c.title, 
+      slug: c.slug 
+  }));
 
   return (
     <>
