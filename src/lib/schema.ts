@@ -78,9 +78,9 @@ export function schemaWebSite() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     '@id': `${SITE_URL}/#website`,
-    name: 'Fractal Resonance Cognition',
+    name: 'Shabrang',
     url: SITE_URL,
-    description: 'Research platform for the Fractal Resonance Cognition framework — exploring consciousness, coherence, and quantum foundations.',
+    description: 'Art, philosophy, and the Persian spirit — The Liquid Fortress, albums, and explorations of coherence through Persian aesthetics.',
     inLanguage: 'en',
     potentialAction: {
       '@type': 'SearchAction',
