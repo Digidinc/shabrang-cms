@@ -2,14 +2,13 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
-import { schemaPaperPage } from '@/lib/schema';
+import { schemaArticlePage, type ArticleMeta } from '@/lib/schema';
 import { MarkdownContent } from '@/components/MarkdownContent';
 import { ContentDigest } from '@/components/ContentDigest';
 import { ArticlesSidebar } from '@/components/ArticlesSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
-import { InterpretationGate } from '@/components/ModeNotice';
 import {
   estimateReadTime,
   getArticle,
@@ -35,8 +34,7 @@ export async function generateStaticParams() {
   for (const lang of languages) {
     const articles = getArticles(lang);
     for (const article of articles) {
-      // Include all items so we can gracefully hand off River-only content
-      // rather than emitting static 404s for `/articles/...`.
+      if (!matchesPerspectiveView(article.frontmatter.perspective, 'kasra')) continue;
       if (article.frontmatter.id) {
         params.push({ lang, id: article.frontmatter.id });
       }
@@ -54,13 +52,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const fm = article.frontmatter;
   const author = fm.author || 'H. Servat';
   const norm = normalizeContentPerspective(fm.perspective);
-  const canonicalUrl = `https://fractalresonance.com/${lang}/art/${fm.id}`;
+  const canonicalUrl = `https://shabrang.ca/${lang}/art/${fm.id}`;
   const alternates = getAlternateLanguages('articles', fm.id);
 
   return {
     title: fm.title,
     description: fm.abstract,
-    keywords: fm.tags,
+    keywords: Array.isArray(fm.tags) ? fm.tags : [],
     authors: [{ name: author }],
     alternates: {
       canonical: canonicalUrl,
@@ -73,7 +71,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: fm.abstract,
       publishedTime: fm.date,
       authors: [author],
-      tags: fm.tags,
+      tags: Array.isArray(fm.tags) ? fm.tags : [],
       locale: lang,
     },
   };
@@ -86,12 +84,25 @@ export default async function ArticlePage({ params }: Props) {
   const norm = normalizeContentPerspective(article.frontmatter.perspective);
 
   const basePath = `/${lang}`;
-  // Reuse PaperMeta for schema as it fits article structure well enough
+  const fm = article.frontmatter;
+
+  // Build ArticleMeta for schema
+  const articleMeta: ArticleMeta = {
+    id: fm.id,
+    title: fm.title || 'Untitled',
+    description: fm.abstract || '',
+    author: fm.author,
+    date: fm.date || '',
+    tags: Array.isArray(fm.tags) ? fm.tags : [],
+    lang,
+    video: fm.video as ArticleMeta['video'],
+  };
+
+  // Keep legacy meta for video embed and images
   const meta = toPaperMeta(article);
-  const backlinks = buildBacklinks(lang);
+  const backlinks = buildBacklinks(lang, 'kasra');
   const pageBacklinks = backlinks[id] || [];
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
-  const fm = article.frontmatter;
   const readTime = fm.read_time || estimateReadTime(article.body);
 
   const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
@@ -108,7 +119,7 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <>
-      <SchemaScript data={schemaPaperPage(meta)} />
+      <SchemaScript data={schemaArticlePage(articleMeta)} />
 
       <PageShell
         leftMobile={<ArticlesSidebar lang={lang} currentId={id} basePath={basePath} view="kasra" variant="mobile" />}
@@ -135,7 +146,7 @@ export default async function ArticlePage({ params }: Props) {
               <span className="font-mono text-xs">{readTime}</span>
             </div>
             
-            {article.frontmatter.tags && (
+            {Array.isArray(article.frontmatter.tags) && article.frontmatter.tags.length > 0 && (
               <div className="flex flex-wrap gap-2 mt-3">
                 {article.frontmatter.tags.map(tag => (
                   <Link 
@@ -160,9 +171,7 @@ export default async function ArticlePage({ params }: Props) {
           <InlineToc items={tocItems} />
 
           {norm === 'river' ? (
-            <div className="frc-formal-only mb-8">
-              <InterpretationGate title="Digest / interpretation layer" description="This article is tagged as interpretation/digest. Switch mode to read it here." />
-            </div>
+            <div className="frc-formal-only mb-8" />
           ) : null}
 
           {/* Video embed (if available) */}

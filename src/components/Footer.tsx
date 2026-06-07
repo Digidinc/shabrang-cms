@@ -21,20 +21,20 @@ export function Footer() {
     <footer className={`border-t border-frc-blue mt-auto ${isRTL ? 'font-farsi' : ''}`} dir={isRTL ? 'rtl' : 'ltr'}>
       {/* Main footer content */}
       <div className="max-w-6xl mx-auto px-6 py-12">
-        <div className="grid sm:grid-cols-3 gap-10">
+        <div className="grid sm:grid-cols-4 gap-10">
           {/* Brand */}
-          <div>
+          <div className="sm:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <Image src="/brand/logo.png" alt="Shabrang" width={24} height={24} className="opacity-70" />
+              <Image src="/brand/sigil-64.png" alt="FRC" width={24} height={24} className="opacity-70" />
               <span className="text-frc-gold text-sm font-medium tracking-wide">
-                Shabrang
+                Fractal Resonance Cognition
               </span>
             </div>
             <p className="text-frc-text-dim text-xs leading-relaxed max-w-sm mb-4">
-              Art, philosophy, and the Persian spirit. The Liquid Fortress — a journey through coherence.
+              {dict.footer.description}
             </p>
             <div className="flex items-center gap-4 text-xs text-frc-steel">
-              <span>Kay Hermes</span>
+              <span>Hadi Servat</span>
               <span className="text-frc-blue">|</span>
               <span>CC BY-NC-ND 4.0</span>
             </div>
@@ -42,29 +42,48 @@ export function Footer() {
 
           {/* Navigation */}
           <div>
-            <p className="font-mono text-[0.625rem] text-frc-steel uppercase tracking-widest mb-4">{dict.footer.navigate || 'Navigate'}</p>
+            <p className="font-mono text-[0.625rem] text-frc-steel uppercase tracking-widest mb-4">{dict.footer.navigate}</p>
             <div className="flex flex-col gap-2 text-sm">
-              <Link href={`${basePath}/books`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.books || 'Book'}</Link>
-              <Link href={`${basePath}/art`} className="text-frc-text-dim hover:text-frc-gold">Art</Link>
-              <Link href={`${basePath}/blog`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.blog || 'Blog'}</Link>
-              <Link href={`${basePath}/topics`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.topics || 'Topics'}</Link>
-              <Link href={`${basePath}/about`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.about || 'About'}</Link>
+              <Link href={`${basePath}/about`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.about}</Link>
+              <Link href={`${basePath}/articles`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.articles}</Link>
+              <Link href={`${basePath}/blog`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.blog}</Link>
+              <Link href={`${basePath}/topics`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.topics}</Link>
+              <Link href={`${basePath}/people`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.people}</Link>
+              <Link href={`${basePath}/papers`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.papers}</Link>
+              <Link href={`${basePath}/formulas`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.formulas}</Link>
+              <Link href={`${basePath}/positioning`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.positioning}</Link>
+              <Link href={`${basePath}/mu-levels`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.muLevels}</Link>
             </div>
           </div>
 
           {/* External */}
           <div>
-            <p className="font-mono text-[0.625rem] text-frc-steel uppercase tracking-widest mb-4">{dict.footer.external || 'Connect'}</p>
+            <p className="font-mono text-[0.625rem] text-frc-steel uppercase tracking-widest mb-4">{dict.footer.external}</p>
             <div className="flex flex-col gap-2 text-sm">
-              <a href="https://www.amazon.com/LIQUID-FORTRESS-Structural-History-Persian-ebook/dp/B0GBJ47F5X" target="_blank" rel="noopener noreferrer" className="text-frc-text-dim hover:text-frc-gold">
-                Kindle
+              <Link href={`${basePath}/join`} className="text-frc-text-dim hover:text-frc-gold">
+                {dict.nav.join}
+              </Link>
+              <a href="https://zenodo.org/communities/frc" target="_blank" rel="noopener noreferrer" className="text-frc-text-dim hover:text-frc-gold">
+                Zenodo
               </a>
-              <a href="https://github.com/Digidinc/shabrang-cms" target="_blank" rel="noopener noreferrer" className="text-frc-text-dim hover:text-frc-gold">
+              <a href="https://orcid.org/0009-0004-7412-5129" target="_blank" rel="noopener noreferrer" className="text-frc-text-dim hover:text-frc-gold">
+                ORCID
+              </a>
+              <a href="https://www.researchgate.net/profile/Hadi-Servat" target="_blank" rel="noopener noreferrer" className="text-frc-text-dim hover:text-frc-gold">
+                ResearchGate
+              </a>
+              <a href="https://independent.academia.edu/HadiServat" target="_blank" rel="noopener noreferrer" className="text-frc-text-dim hover:text-frc-gold">
+                Academia.edu
+              </a>
+              <a href="https://github.com/servathadi/fractalresonance" target="_blank" rel="noopener noreferrer" className="text-frc-text-dim hover:text-frc-gold">
                 GitHub
               </a>
-              <Link href="/llms.txt" className="text-frc-text-dim hover:text-frc-gold">
+              <a href="https://notebooklm.google.com/notebook/c2da28c7-5c58-4904-9807-807584bd7f13" target="_blank" rel="noopener noreferrer" className="text-frc-text-dim hover:text-frc-gold">
+                {dict.nav.askAi} (NotebookLM)
+              </a>
+              <a href="/llms.txt" className="text-frc-text-dim hover:text-frc-gold">
                 llms.txt
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -74,17 +93,17 @@ export function Footer() {
       <div className="border-t border-frc-blue/50">
         <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
           <span className="font-mono text-[0.5625rem] text-frc-steel tracking-wider" dir="ltr">
-            شبرنگ — The Liquid Fortress
+            dS + k* d ln C = 0
           </span>
           <div className="flex items-center gap-4">
             <Link href={`${basePath}/privacy`} className="font-mono text-[0.5625rem] text-frc-steel hover:text-frc-gold tracking-wider">
-              {dict.footer.privacy || 'Privacy'}
+              {dict.footer.privacy}
             </Link>
             <Link href={`${basePath}/terms`} className="font-mono text-[0.5625rem] text-frc-steel hover:text-frc-gold tracking-wider">
-              {dict.footer.terms || 'Terms'}
+              {dict.footer.terms}
             </Link>
             <span className="font-mono text-[0.5625rem] text-frc-steel tracking-wider">
-              Shabrang {new Date().getFullYear()}
+              FRC {new Date().getFullYear()}
             </span>
           </div>
         </div>

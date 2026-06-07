@@ -8,9 +8,9 @@ import { BooksSidebar } from '@/components/BooksSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
-import { estimateReadTime, getBook, getBooks, getBookChapters, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
-import { schemaPaperPage } from '@/lib/schema';
-import { getChapterList } from '@/lib/bookChapters';
+import { BookExperience } from '@/components/BookExperience';
+import { estimateReadTime, getBook, getBooks, getBookChapters, getLanguages, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
+import { schemaBookPage, type BookMeta, type ChapterMeta } from '@/lib/schema';
 import { renderMarkdown } from '@/lib/markdown';
 
 interface Props {
@@ -40,13 +40,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const fm = book.frontmatter;
   const author = fm.author || 'H. Servat';
-  const bookUrl = `https://fractalresonance.com/${lang}/books/${fm.id}`;
+  const bookUrl = `https://shabrang.ca/${lang}/books/${fm.id}`;
   const alternates = getAlternateLanguages('books', fm.id);
 
   return {
     title: fm.title,
     description: fm.abstract,
-    keywords: fm.tags,
+    keywords: Array.isArray(fm.tags) ? fm.tags : [],
     authors: [{ name: author }],
     alternates: {
       canonical: bookUrl,
@@ -57,8 +57,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: fm.title,
       description: fm.abstract,
       authors: [author],
-      tags: fm.tags,
+      tags: Array.isArray(fm.tags) ? fm.tags : [],
       locale: lang,
+      url: bookUrl,
     },
   };
 }
@@ -69,12 +70,38 @@ export default async function BookPage({ params }: Props) {
   if (!book) notFound();
 
   const basePath = `/${lang}`;
-  const meta = toPaperMeta(book);
-  const backlinks = buildBacklinks(lang);
+  const backlinks = buildBacklinks(lang, 'kasra');
   const pageBacklinks = backlinks[id] || [];
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
   const fm = book.frontmatter;
-  const readTime = fm.read_time || estimateReadTime(book.body);
+
+  // Get chapters directly from chapter files (not from combined body)
+  const chapters = getBookChapters(lang, id);
+  const chapterItems = chapters.map((c) => {
+    const slug = c.filename.replace(/\.md$/, '');
+    return { slug, title: c.title, anchorId: slug };
+  });
+
+  // Build BookMeta for schema
+  const bookMeta: BookMeta = {
+    id: fm.id,
+    title: fm.title || 'Untitled Book',
+    description: fm.abstract || '',
+    author: fm.author || 'H. Servat',
+    lang,
+    datePublished: fm.date,
+    chapters: chapters.map((c, idx): ChapterMeta => ({
+      id: c.filename.replace(/\.md$/, ''),
+      title: c.title,
+      position: idx + 1,
+      bookId: fm.id,
+      lang,
+    })),
+  };
+
+  // Calculate total read time from all chapters
+  const totalContent = chapters.map((c) => c.body).join('\n');
+  const readTime = fm.read_time || estimateReadTime(totalContent);
 
   const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
   const prereqLinks = (fm.prerequisites || []).map((pid) => {
@@ -83,32 +110,20 @@ export default async function BookPage({ params }: Props) {
     return { id: pid, title: item?.title || pid, href: item?.url || `${basePath}/concepts/${pid}` };
   });
 
+  // Only render the book's index content (abstract, intro), not all chapters
   const renderedBody = renderMarkdown(book.body, lang, glossary, basePath);
-  
-  // Check for folder-based chapters first
-  const folderChapters = getBookChapters(lang, id);
-  let chapterItems;
-
-  if (folderChapters.length > 0) {
-    chapterItems = folderChapters.map(c => ({
-      anchorId: c.filename.replace(/\.md$/, ''),
-      title: c.title,
-      slug: c.filename.replace(/\.md$/, '')
-    }));
-  } else {
-    chapterItems = getChapterList(book.body);
-  }
-
   const tocItems = chapterItems.map((c) => ({ id: c.anchorId, text: c.title, level: 1 }));
 
   return (
     <>
-      <SchemaScript data={schemaPaperPage(meta)} />
+      <SchemaScript data={schemaBookPage(bookMeta)} />
+      <BookExperience />
 
       <PageShell
         leftMobile={<BooksSidebar lang={lang} currentId={id} chapters={chapterItems} basePath={basePath} view="kasra" variant="mobile" />}
         leftDesktop={<BooksSidebar lang={lang} currentId={id} chapters={chapterItems} basePath={basePath} view="kasra" />}
         right={<TableOfContents items={tocItems} minBreakpoint="md" title="Book index" />}
+        articleClassName="pt-14"
       >
           {/* Breadcrumb */}
           <nav className="text-sm text-frc-text-dim mb-8">
@@ -129,7 +144,7 @@ export default async function BookPage({ params }: Props) {
               {book.frontmatter.date && <span>{book.frontmatter.date}</span>}
               <span className="font-mono text-xs">{readTime}</span>
             </div>
-            {book.frontmatter.tags && (
+            {Array.isArray(book.frontmatter.tags) && book.frontmatter.tags.length > 0 && (
               <div className="flex flex-wrap gap-2 mt-3">
                 {book.frontmatter.tags.map(tag => (
                   <Link

@@ -46,7 +46,5 @@ sources/infographics/
 # Legacy inbox
 content/inbox/
 
-node_modules/
-.next/
-dist/
-.cache/
+# Generated files
+public/search-index.json
