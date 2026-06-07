@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return { title: 'Not Found' };
 
   const fm = post.frontmatter;
-  const postUrl = `https://fractalresonance.com/${lang}/tales/${fm.id}`;
+  const postUrl = `https://shabrang.ca/${lang}/tales/${fm.id}`;
   const alternates = getAlternateLanguages('tales', fm.id);
 
   return {

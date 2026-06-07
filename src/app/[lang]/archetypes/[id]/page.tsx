@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const fm = topic.frontmatter;
   const author = fm.author || 'FRC';
-  const url = `https://fractalresonance.com/${lang}/archetypes/${fm.id}`;
+  const url = `https://shabrang.ca/${lang}/archetypes/${fm.id}`;
   const alternates = getAlternateLanguages('archetypes', fm.id);
 
   return {

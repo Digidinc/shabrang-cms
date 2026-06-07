@@ -52,27 +52,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!topic) return { title: 'Not Found' };
 
   const fm = topic.frontmatter;
-  const author = fm.author || 'FRC';
-  const url = `https://fractalresonance.com/${lang}/topics/${fm.id}`;
   const alternates = getAlternateLanguages('topics', fm.id);
+  const topicUrl = `https://shabrang.ca/${lang}/topics/${fm.id}`;
 
   return {
     title: fm.title,
-    description: fm.abstract || fm.short_answer,
-    keywords: fm.tags,
-    authors: [{ name: author }],
+    description: fm.short_answer || fm.abstract,
+    keywords: Array.isArray(fm.tags) ? fm.tags : [],
     alternates: {
-      canonical: url,
+      canonical: topicUrl,
       languages: alternates,
     },
     openGraph: {
       type: 'article',
       title: fm.title,
-      description: fm.abstract || fm.short_answer,
-      publishedTime: fm.date,
-      authors: [author],
-      tags: fm.tags,
+      description: fm.short_answer || fm.abstract,
+      tags: Array.isArray(fm.tags) ? fm.tags : [],
       locale: lang,
+      url: topicUrl,
     },
   };
 }
@@ -101,7 +98,7 @@ export default async function TopicPage({ params }: Props) {
   const basePath = `/${lang}`;
   const fm = topic.frontmatter;
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
-  const backlinks = buildBacklinks(lang);
+  const backlinks = buildBacklinks(lang, 'kasra');
   const pageBacklinks = backlinks[id] || [];
   const readTime = fm.read_time || estimateReadTime(topic.body);
   const voiceId = typeof fm.voice === 'string' ? fm.voice.trim() : '';
@@ -191,7 +188,7 @@ export default async function TopicPage({ params }: Props) {
             <span className="font-mono text-xs">{readTime}</span>
           </div>
 
-          {fm.tags && (
+          {Array.isArray(fm.tags) && fm.tags.length > 0 && (
             <div className="flex flex-wrap gap-2 mt-3">
               {fm.tags.map((tag) => (
                 <Link
